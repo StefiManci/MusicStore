@@ -2,21 +2,25 @@
 {
     public class Album
     {
-        //hiq spaces
-        //ver komente per cdo property
-        //ndrysho pozicionet e klasave tek Models
-        public int Id { get; set; }
-        public string Title { get; set; }
-
         /// <summary>
-        /// 
+        /// Gets or Sets the Album Id
+        /// </summary>
+        public int Id { get; set; }
+        /// <summary>
+        /// Gets or Sets the Album Title
+        /// </summary>
+        public string Title { get; set; }
+        /// <summary>
+        /// Gets or Sets the Album Author
         /// </summary>
         public string Author { get; set; }
-
         /// <summary>
-        /// Gets or sets the album release year.
+        /// Gets or Sets the Album ReleaseYear
         /// </summary>
         public int ReleaseYear { get; set; }
+        /// <summary>
+        /// Gets or Sets the Album Genre
+        /// </summary>
         public string Genre { get; set; }
     }
 }

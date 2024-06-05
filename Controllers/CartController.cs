@@ -22,7 +22,6 @@ namespace MusicStore.Controllers
                 ReturnUrl = returnUrl
             });
         }
-
         public RedirectToActionResult AddToCart(string Title, string returnUrl)
         {
             Album album = repository.Albums

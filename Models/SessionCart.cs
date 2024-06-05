@@ -2,9 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using MusicStore.Infrastructure;
-using MusicStore.Models;
 using Newtonsoft.Json;
-
 namespace MusicStore.Models
 {
     public class SessionCart : Cart

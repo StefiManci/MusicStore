@@ -2,7 +2,6 @@
 using MusicStore.Models.Database;
 using System.Collections.Generic;
 using System.Linq;
-
 namespace MusicStore.Models.Repository
 {
     public class EFOrderRepository : IOrderRepository
@@ -12,7 +11,6 @@ namespace MusicStore.Models.Repository
         {
             context = ctx;
         }
-
         public IEnumerable<Order> Orders => context.Orders
         .Include(o => o.Lines)
         .ThenInclude(l => l.Album);

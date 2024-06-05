@@ -4,7 +4,7 @@ using System.Linq;
 namespace MusicStore.Models
 {
     /// <summary>
-    /// 
+    /// Cart Class 
     /// </summary>
     public class Cart
         //dy klasa cart + cartline me vete dhe metodat ne CartRepository
@@ -28,7 +28,6 @@ namespace MusicStore.Models
         public virtual void Clear() => lineCollection.Clear();
         public virtual IEnumerable<CartLine> Lines => lineCollection;
     }
-
     public class CartLine
     {
         public int Id { get; set; }
