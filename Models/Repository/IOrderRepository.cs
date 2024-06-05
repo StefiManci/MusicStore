@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace MusicStore.Models
+namespace MusicStore.Models.Repository
 {
     public interface IOrderRepository
     {

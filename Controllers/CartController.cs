@@ -2,6 +2,7 @@
 using System.Linq;
 using MusicStore.Models;
 using MusicStore.Models.ViewModels;
+using MusicStore.Models.Repository;
 namespace MusicStore.Controllers
 {
     public class CartController : Controller
@@ -44,6 +45,3 @@ namespace MusicStore.Controllers
         }
     }
 }
-
-
-

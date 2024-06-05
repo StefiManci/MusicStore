@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+using MusicStore.Models.Database;
 
-namespace MusicStore.Models
+namespace MusicStore.Models.Repository
 {
     public class EFAlbumRepository : IAlbumRepository
     {

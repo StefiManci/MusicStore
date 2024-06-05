@@ -8,6 +8,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MusicStore.Models;
+using MusicStore.Models.Database;
+using MusicStore.Models.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;

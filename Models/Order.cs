@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using MusicStore.Models;
+
 namespace MusicStore.Models
 {
     public class Order

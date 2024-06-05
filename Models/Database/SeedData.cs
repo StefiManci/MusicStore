@@ -1,9 +1,8 @@
 ﻿using System.Linq;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
-using MusicStore.Models;
 using static System.Net.Mime.MediaTypeNames;
-namespace MusicStore.Models
+namespace MusicStore.Models.Database
 {
     public static class SeedData
     {
@@ -16,8 +15,8 @@ namespace MusicStore.Models
                 {
                     context.Musics.AddRange(
                     new Album
-                    { 
-                      
+                    {
+
                         Title = "Despacito",
                         Author = "Luis Fonsi",
                         ReleaseYear = 2023,
@@ -25,7 +24,7 @@ namespace MusicStore.Models
                     },
                     new Album
                     {
-                     
+
                         Title = "What a Wonderful World",
                         Author = "Louis Armstrong",
                         ReleaseYear = 2023,
@@ -33,7 +32,7 @@ namespace MusicStore.Models
                     },
                     new Album
                     {
-                     
+
                         Title = "Immigrant",
                         Author = "Led Zeppelin",
                         ReleaseYear = 2023,
@@ -41,7 +40,7 @@ namespace MusicStore.Models
                     },
                     new Album
                     {
-      
+
                         Title = "Nuk Kan Besu",
                         Author = "Noizy",
                         ReleaseYear = 2023,
