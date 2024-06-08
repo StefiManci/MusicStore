@@ -1,12 +1,49 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-
+using MusicStore.Models;
+using MusicStore.Models.Repository;
+using System.Linq;
 namespace MusicStore.Controllers
 {
     public class AdminController : Controller
     {
-        public string Index()
+        IAlbumRepository albumRepository;
+
+        public AdminController(IAlbumRepository albumRepository)
         {
-            return "This will be the Admin section";
+            this.albumRepository = albumRepository;
         }
+        public ViewResult Index()
+        {
+            return View(albumRepository.Albums);
+        }
+
+        public ViewResult Edit(int Id) 
+        {
+            return View(albumRepository.Albums
+                .FirstOrDefault(p => p.Id == Id));
+        }
+        [HttpPost]
+        public IActionResult Edit(Album album) {
+            if (ModelState.IsValid)
+            {
+                albumRepository.SaveAlbum(album);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View(album);
+            }
+        }
+        public ViewResult Create()
+        {
+            return View("Edit", new Album());
+        }
+        [HttpPost]
+        public IActionResult Delete(int Id)
+        {
+            Album deletedProduct = albumRepository.DeleteProduct(Id);
+            return RedirectToAction("Index");
+        }
+
     }
 }

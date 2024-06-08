@@ -8,5 +8,7 @@ namespace MusicStore.Models.Repository
         /// Interface to implement Album IEnumerable
         /// </summary>
         IEnumerable<Album> Albums { get; }
+        void SaveAlbum(Album album);
+        Album DeleteProduct(int Id);
     }
 }

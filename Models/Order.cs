@@ -22,6 +22,11 @@ namespace MusicStore.Models
         [Required]
         public string Name { get; set; }
         /// <summary>
+        /// Gets or Sets the Shipped State of the Order
+        /// </summary>
+        [BindNever]
+        public bool Shipped { get; set; }
+        /// <summary>
         /// Gets or Sets the Order Line 1
         /// </summary>
         [Required]
