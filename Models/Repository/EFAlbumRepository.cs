@@ -23,6 +23,7 @@ namespace MusicStore.Models.Repository
                     .FirstOrDefault(p => p.Id == album.Id);
                 if (dbEntry != null)
                 {
+                    dbEntry.Id= album.Id;
                     dbEntry.Title = album.Title;
                     dbEntry.Author = album.Author;
                     dbEntry.ReleaseYear = album.ReleaseYear;

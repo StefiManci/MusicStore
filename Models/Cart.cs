@@ -7,7 +7,6 @@ namespace MusicStore.Models
     /// Cart Class 
     /// </summary>
     public class Cart
-        //dy klasa cart + cartline me vete dhe metodat ne CartRepository
     {
         private List<CartLine> lineCollection = new List<CartLine>();
         public virtual void AddItem(Album album)
@@ -27,10 +26,5 @@ namespace MusicStore.Models
         lineCollection.RemoveAll(l => l.Album.Title == music.Title);
         public virtual void Clear() => lineCollection.Clear();
         public virtual IEnumerable<CartLine> Lines => lineCollection;
-    }
-    public class CartLine
-    {
-        public int Id { get; set; }
-        public Album Album { get; set; }
     }
 }

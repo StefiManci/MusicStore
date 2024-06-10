@@ -10,7 +10,6 @@ namespace MusicStore.Controllers
         {
             repository = repo;
         }
-        //change the methods
         public ViewResult Index(string category)
         {
             return View(repository.Albums

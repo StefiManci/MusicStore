@@ -21,20 +21,8 @@
             </a>
             <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit" value="Filter">Search</button>
+                <button class="btn btn-outline-success" type="submit" hidden value="Filter">Search</button>
             </form>
-            <div class="dropdown m-1">
-                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Genres
-                </a>
-
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" asp-action="Index" asp-controller="Home" asp-route-category="Pop">Pop</a></li>
-                    <li><a class="dropdown-item" asp-action="Index" asp-controller="Home" asp-route-category="Jazz">Jazz</a></li>
-                    <li><a class="dropdown-item" asp-action="Index" asp-controller="Home" asp-route-category="Rock">Rock</a></li>
-                    <li><a class="dropdown-item" asp-action="Index" asp-controller="Home" asp-route-category="HipHop">Hip Hop</a></li>
-                </ul>
-            </div>
             <ul class="nav nav-pills">
                 <li class="nav-item"><a asp-action="Index" asp-controller="Home" class="nav-link" aria-current="page">Home</a></li>
                 <li class="nav-item"><a asp-action="Index" asp-controller="Store" class="nav-link">Store</a></li>

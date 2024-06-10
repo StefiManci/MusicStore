@@ -14,8 +14,10 @@ namespace MusicStore.Controllers
             repository = repoService;
             cart = cartService;
         }
-        public ViewResult List() =>
-                 View(repository.Orders.Where(o => !o.Shipped));
+        public ViewResult List()
+        {
+            return View(repository.Orders.Where(o => !o.Shipped));
+        }
         [HttpPost]
         public IActionResult MarkShipped(int orderID)
         {
@@ -28,13 +30,16 @@ namespace MusicStore.Controllers
             }
             return RedirectToAction(nameof(List));
         }
-        public ViewResult Checkout() => View(new Order());
+        public ViewResult Checkout()
+        {
+            return View(new Order());
+        }
         [HttpPost]
         public IActionResult Checkout(Order order)
         {
             if (cart.Lines.Count() == 0)
             {
-                ModelState.AddModelError("", "//mesazh te sakteee");
+                ModelState.AddModelError("", "Error,Your Cart Is Empty");
             }
             if (ModelState.IsValid)
             {

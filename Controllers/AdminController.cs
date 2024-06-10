@@ -7,7 +7,6 @@ namespace MusicStore.Controllers
     public class AdminController : Controller
     {
         IAlbumRepository albumRepository;
-
         public AdminController(IAlbumRepository albumRepository)
         {
             this.albumRepository = albumRepository;
@@ -16,7 +15,6 @@ namespace MusicStore.Controllers
         {
             return View(albumRepository.Albums);
         }
-
         public ViewResult Edit(int Id) 
         {
             return View(albumRepository.Albums
@@ -27,6 +25,7 @@ namespace MusicStore.Controllers
             if (ModelState.IsValid)
             {
                 albumRepository.SaveAlbum(album);
+                TempData["message"] = $"{album.Title} has been saved";
                 return RedirectToAction("Index");
             }
             else
@@ -44,6 +43,5 @@ namespace MusicStore.Controllers
             Album deletedProduct = albumRepository.DeleteProduct(Id);
             return RedirectToAction("Index");
         }
-
     }
 }

@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-
 namespace MusicStore.Models.Database
 {
     public class ApplicationDbContext : DbContext
