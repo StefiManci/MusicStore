@@ -56,7 +56,7 @@ namespace MusicStore
                    routes.MapRoute(name: "", template: "{detail?}", defaults: "{controller=Home}/{action=Details}");
                    routes.MapRoute(name: "", template: "{controller=Cart}");
                    routes.MapRoute(name: "", template: "{Checkout}", defaults: "{controller=Order}/{action=Checkout}");
-
+                   routes.MapRoute(name: "", template: "{Index}", defaults: "{controller=Store}/{action=Index}");
                }
                 );
             SeedData.EnsurePopulated(app);

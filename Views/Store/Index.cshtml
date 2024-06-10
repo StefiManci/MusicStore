@@ -20,7 +20,7 @@
             </a>
             <form class="d-flex" role="search">
                 <input class="form-control me-2" name="inputvalue" type="search" placeholder="Type Album Name" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit" hidden formmethod="post" asp-controller="Home" asp-action="Search">Search</button>
+                <button class="btn btn-outline-success" type="submit" hidden formmethod="post" asp-controller="Store" asp-action="Search">Type Album Name</button>
 
             </form>
             <ul class="nav nav-pills">
@@ -30,36 +30,23 @@
                 <li class="nav-item"><a asp-action="Index" asp-controller="Admin" class="nav-link">Admin</a></li>
             </ul>
         </header>
-        <div class="container col-12 d-flex">
-            <div class="d-flex flex-column align-items-center col-2  text-bg-white" style="width: 180px;">
-                <hr>
-                <h2>Genres</h2>
-                <hr />
-                <ul class="nav nav-pills flex-column mb-auto">
-                    <li><a class="dropdown-item" asp-action="Index" asp-controller="Home" asp-route-category="Pop"><button type="button" class="btn btn-outline-info" style="width:100px">Pop</button></a></li>
-                    <li><a class="dropdown-item" asp-action="Index" asp-controller="Home" asp-route-category="Jazz"><button type="button" class="btn btn-outline-info" style="width:100px">Jazz</button></a></li>
-                    <li><a class="dropdown-item" asp-action="Index" asp-controller="Home" asp-route-category="Rock"><button type="button" class="btn btn-outline-info" style="width:100px">Rock</button></a></li>
-                    <li><a class="dropdown-item" asp-action="Index" asp-controller="Home" asp-route-category="HipHop"><button type="button" class="btn btn-outline-info" style="width:100px">Hip Hop</button></a></li>
-                </ul>
+        <div class="container col-12 d-flex flex-wrap">
+            <div class="container col-1">
+                <div class="d-flex flex-column align-items-center col-2 text-bg-white" style="width: 150px; border-right">
+                    <hr>
+                    <h2>Genres</h2>
+                    <hr />
+                    <ul class="nav nav-pills flex-column mb-auto">
+                        <li><a class="dropdown-item" asp-action="Index" asp-controller="Store" asp-route-category="Pop"><button type="button" class="btn btn-outline-info" style="width:100px">Pop</button></a></li>
+                        <li><a class="dropdown-item" asp-action="Index" asp-controller="Store" asp-route-category="Jazz"><button type="button" class="btn btn-outline-info" style="width:100px">Jazz</button></a></li>
+                        <li><a class="dropdown-item" asp-action="Index" asp-controller="Store" asp-route-category="Rock"><button type="button" class="btn btn-outline-info" style="width:100px">Rock</button></a></li>
+                        <li><a class="dropdown-item" asp-action="Index" asp-controller="Store" asp-route-category="HipHop"><button type="button" class="btn btn-outline-info" style="width:100px">Hip Hop</button></a></li>
+                    </ul>
 
-                <hr>
-            </div>
-            <div id="carouselExampleSlidesOnly" class="carousel slide col-10" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="./images/Poster2.png" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="./images/The Best Songs.png" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="./images/Poster3.png" class="d-block w-100" alt="...">
-                    </div>
+                    <hr>
                 </div>
             </div>
-        </div>
-        <hr />
-        <div class="container col-12 d-flex flex-wrap">
+            <div class="container col-11 d-flex flex-wrap">
             @foreach (var i in Model)
             {
                 <div class="col-lg-3" style="text-align: center;">
@@ -71,6 +58,8 @@
                     <p><a class="btn btn-success" asp-action="Details" asp-controller="Home" asp-route-detail="@i.Title">View details »</a></p>
                 </div>
             }
+            </div>
+
         </div>
     </div>
     <div class="container">
