@@ -21,56 +21,77 @@
             </a>
             <form class="d-flex" role="search">
                 <input class="form-control me-2" name="inputvalue" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" hidden type="submit" formmethod="post" asp-controller="Home" asp-action="Search">Search</button>
+                <button class="btn btn-outline-success" hidden type="submit" formmethod="post" asp-controller="Home" asp-action="Search">Type Album Name</button>
             </form>
             <ul class="nav nav-pills">
-                <li class="nav-item"><a asp-action="Index" asp-controller="Home" class="nav-link" aria-current="page">Home</a></li>
-                <li class="nav-item"><a asp-action="Index" asp-controller="Store" class="nav-link">Store</a></li>
-                <li class="nav-item"><a asp-action="Index" asp-controller="Cart" class="nav-link">Cart</a></li>
-                <li class="nav-item"><a asp-action="Index" asp-controller="Admin" class="nav-link">Admin</a></li>
+                <li class="nav-item"><a asp-action="Index" asp-controller="Home" class="nav-link" aria-current="page"><button type="button" class="btn btn-outline-info" style="width:100px">Home</button></a></li>
+                <li class="nav-item"><a asp-action="Index" asp-controller="Store" class="nav-link"><button type="button" class="btn btn-outline-info" style="width:100px">Store</button></a></li>
+                <li class="nav-item"><a asp-action="Index" asp-controller="Cart" class="nav-link"><button type="button" class="btn btn-outline-info" style="width:100px">Cart</button></a></li>
+                <li class="nav-item"><a asp-action="Index" asp-controller="Admin" class="nav-link"><button type="button" class="btn btn-outline-info" style="width:100px">Admin</button></a></li>
             </ul>
         </header>
-        <div class="row mt-3">
-            <h2>Your cart</h2>
-            <table class="table table-bordered table-striped">
-                <thead>
-                    <tr>
-                        <th>Title</th>
-                         <th>Author</th>
-                          <th>Release Year</th>
-                        <th>Genre</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var line in Model.Cart.Lines)
-                    {
-                        <tr>
-                            <td class="text-left">@line.Album.Title</td>
-                            <td class="text-left">@line.Album.Author</td>
-                            <td class="text-left">@line.Album.ReleaseYear</td>
-                            <td class="text-left">@line.Album.Genre</td>
-                            <td>
-                                <form asp-action="RemoveFromCart" method="post">
-                                    <input type="hidden" name="Title"
-                                           value="@line.Album.Title" />
-                                    <input type="hidden" name="returnUrl"
-                                           value="@Model.ReturnUrl" />
-                                    <button type="submit" class="btn btn-sm btn-danger ">
-                                        Remove
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
+        <div class="container col-12 d-flex">
+            <div class="container col-1">
+                <div class="d-flex flex-column align-items-center col-2  text-bg-white" style="width: 180px; border-right:2px solid blue">
+                    <hr>
+                    <h2>Genres</h2>
+                    <hr />
+                    <ul class="nav nav-pills flex-column mb-auto">
+                        <li><a class="dropdown-item" asp-action="Index" asp-controller="Home" asp-route-category="Pop"><button type="button" class="btn btn-outline-info" style="width:100px">Pop</button></a></li>
+                        <li><a class="dropdown-item" asp-action="Index" asp-controller="Home" asp-route-category="Jazz"><button type="button" class="btn btn-outline-info" style="width:100px">Jazz</button></a></li>
+                        <li><a class="dropdown-item" asp-action="Index" asp-controller="Home" asp-route-category="Rock"><button type="button" class="btn btn-outline-info" style="width:100px">Rock</button></a></li>
+                        <li><a class="dropdown-item" asp-action="Index" asp-controller="Home" asp-route-category="HipHop"><button type="button" class="btn btn-outline-info" style="width:100px">Hip Hop</button></a></li>
+                    </ul>
 
-                    }
-                </tbody>
-            </table>
-            <div class="text-center">
-                <a class="btn btn-primary" asp-action="Index" asp-controller="Home">Continue shopping</a>
-                <a class="btn btn-primary" asp-action="Checkout" asp-controller="Order">Checkout</a>
+                    <hr>
+                </div>
             </div>
+            <div class="container col-9">
+                <div class="row mt-3">
+                    <h2>Your cart</h2>
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Author</th>
+                                <th>Release Year</th>
+                                <th>Genre</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var line in Model.Cart.Lines)
+                            {
+                                <tr>
+                                    <td class="text-left">@line.Album.Title</td>
+                                    <td class="text-left">@line.Album.Author</td>
+                                    <td class="text-left">@line.Album.ReleaseYear</td>
+                                    <td class="text-left">@line.Album.Genre</td>
+                                    <td>
+                                        <form asp-action="RemoveFromCart" method="post">
+                                            <input type="hidden" name="Title"
+                                                   value="@line.Album.Title" />
+                                            <input type="hidden" name="returnUrl"
+                                                   value="@Model.ReturnUrl" />
+                                            <button type="submit" class="btn btn-sm btn-danger ">
+                                                Remove
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
 
+                            }
+                        </tbody>
+                    </table>
+                    <div class="text-center">
+                        <a class="btn btn-primary" asp-action="Index" asp-controller="Home">Continue shopping</a>
+                        <a class="btn btn-primary" asp-action="Checkout" asp-controller="Order">Checkout</a>
+                    </div>
+
+                </div>
+            </div>
+           
         </div>
+       
         <div class="container">
             <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
                 <div class="col-md-4 d-flex align-items-center">

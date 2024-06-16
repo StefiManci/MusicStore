@@ -24,76 +24,93 @@
                 <button class="btn btn-outline-success" type="submit" hidden value="Filter">Search</button>
             </form>
             <ul class="nav nav-pills">
-                <li class="nav-item"><a asp-action="Index" asp-controller="Home" class="nav-link" aria-current="page">Home</a></li>
-                <li class="nav-item"><a asp-action="Index" asp-controller="Store" class="nav-link">Store</a></li>
-                <li class="nav-item"><a asp-action="Index" asp-controller="Cart" class="nav-link">Cart</a></li>
-                <li class="nav-item"><a asp-action="Index" asp-controller="Admin" class="nav-link">Admin</a></li>
+                <li class="nav-item"><a asp-action="Index" asp-controller="Home" class="nav-link" aria-current="page"><button type="button" class="btn btn-outline-info" style="width:100px">Home</button></a></li>
+                <li class="nav-item"><a asp-action="Index" asp-controller="Store" class="nav-link"><button type="button" class="btn btn-outline-info" style="width:100px">Store</button></a></li>
+                <li class="nav-item"><a asp-action="Index" asp-controller="Cart" class="nav-link"><button type="button" class="btn btn-outline-info" style="width:100px">Cart</button></a></li>
+                <li class="nav-item"><a asp-action="Index" asp-controller="Admin" class="nav-link"><button type="button" class="btn btn-outline-info" style="width:100px">Admin</button></a></li>
             </ul>
         </header>
 
         <div class="row g-5">
 
-            <div class="col-md-12 col-lg-12">
-                <h4 class="mb-3">Billing address</h4>
-                <form asp-action="Checkout" method="post">
-                    <div class="row g-3">
-                        <div class="col-sm-6">
-                            <label for="Name" class="form-label">Name</label>
-                            <input type="text" asp-for="Name" class="form-control" id="firstName" placeholder="Your Name" required="">
+            <div class="col-md-12 col-lg-12 d-flex">
+               
+                <div class="container col-1 ">
+                    <div class="d-flex flex-column align-items-center col-2 text-bg-white" style="width: 180px; border-right:2px solid blue">
+                        <hr>
+                        <h2>Genres</h2>
+                        <hr />
+                        <ul class="nav nav-pills flex-column mb-auto">
+                            <li><a class="dropdown-item" asp-action="Index" asp-controller="Home" asp-route-category="Pop"><button type="button" class="btn btn-outline-info" style="width:100px">Pop</button></a></li>
+                            <li><a class="dropdown-item" asp-action="Index" asp-controller="Home" asp-route-category="Jazz"><button type="button" class="btn btn-outline-info" style="width:100px">Jazz</button></a></li>
+                            <li><a class="dropdown-item" asp-action="Index" asp-controller="Home" asp-route-category="Rock"><button type="button" class="btn btn-outline-info" style="width:100px">Rock</button></a></li>
+                            <li><a class="dropdown-item" asp-action="Index" asp-controller="Home" asp-route-category="HipHop"><button type="button" class="btn btn-outline-info" style="width:100px">Hip Hop</button></a></li>
+                        </ul>
 
-                        </div>
-
-
-
-                        <div class="col-sm-6">
-                            <label for="Line1" class="form-label">Line 1</label>
-                            <div class="input-group has-validation">
-
-                                <input type="text" asp-for="Line1" class="form-control" id="Line1" placeholder="Line 1" required="">
-
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <label for="Line2" class="form-label">Line 2</label>
-                            <div class="input-group has-validation">
-
-                                <input type="text" asp-for="Line2" class="form-control" id="Line2" placeholder="Line 2" required="">
-
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <label for="Line3" class="form-label">Line 3</label>
-                            <div class="input-group has-validation">
-
-                                <input type="text" asp-for="Line3" class="form-control" id="Line3" placeholder="Line 3" required="">
+                        <hr>
+                    </div>
+                </div>
+                <div class="container col-9">
+                    <h4 class="mb-3">Billing address</h4>
+                    <form asp-action="Checkout" method="post">
+                        <div class="row g-3">
+                            <div asp-validation-summary="All" class="text-danger"></div>
+                            <div class="col-lg-12">
+                                <label for="Name" class="form-label">Name</label>
+                                <input type="text" asp-for="Name" class="form-control" id="firstName" placeholder="Your Name">
 
                             </div>
-                        </div>
+                            <div class="col-lg-12">
+                                <label for="Line1" class="form-label">Line 1</label>
+                                <div class="input-group">
 
-                        <div class="col-sm-6">
-                            <label for="Country" class="form-label">Country</label>
-                            <input type="text" asp-for="Country" class="form-control" id="Country" placeholder="Your Country">
-                        </div>
+                                    <input type="text" asp-for="Line1" class="form-control" id="Line1" placeholder="Line 1">
 
-                        <div class="col-md-5">
-                            <label for="City" class="form-label">City</label>
-                            <input type="text" asp-for="City" class="form-control" id="City" placeholder="Your City">
-                         
-                        </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <label for="Line2" class="form-label">Line 2</label>
+                                <div class="input-group">
 
-                        <div class="col-md-4">
-                            <label for="state" class="form-label">State</label>
-                            <input type="text" asp-for="State" class="form-control" id="state" placeholder="Your State">
-                            
-                        </div>
-                        <div class="col-md-4">
-                            <label for="Zip" class="form-label">Zip</label>
-                            <input type="text" asp-for="Zip" class="form-control" id="state" placeholder="Your Zip">
+                                    <input type="text" asp-for="Line2" class="form-control" id="Line2" placeholder="Line 2">
 
-                        </div>
-                        <hr class="my-4">
-                        <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button>
-                </form>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <label for="Line3" class="form-label">Line 3</label>
+                                <div class="input-group ">
+
+                                    <input type="text" asp-for="Line3" class="form-control" id="Line3" placeholder="Line 3">
+
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12">
+                                <label for="Country" class="form-label">Country</label>
+                                <input type="text" asp-for="Country" class="form-control" id="Country" placeholder="Your Country">
+                            </div>
+
+                            <div class="col-lg-12">
+                                <label for="City" class="form-label">City</label>
+                                <input type="text" asp-for="City" class="form-control" id="City" placeholder="Your City">
+
+                            </div>
+
+                            <div class="col-lg-12">
+                                <label for="state" class="form-label">State</label>
+                                <input type="text" asp-for="State" class="form-control" id="state" placeholder="Your State">
+
+                            </div>
+                            <div class="col-lg-12">
+                                <label for="Zip" class="form-label">Zip</label>
+                                <input type="text" asp-for="Zip" class="form-control" id="state" placeholder="Your Zip">
+
+                            </div>
+                            <hr class="my-4">
+                            <button class="w-100 btn btn-primary btn-lg" style="margin-bottom:25px" type="submit">Continue to checkout</button>
+                    </form>
+                </div>
+               
             </div>
         </div>
     </div>
