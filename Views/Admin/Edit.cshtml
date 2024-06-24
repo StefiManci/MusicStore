@@ -34,19 +34,20 @@
 
             <div class="col-md-12 col-lg-12">
                 <h4 class="mb-3">Edit</h4>
+                <div asp-validation-summary="All"></div>
                 <form asp-action="Edit" method="post">
                     <div class="row g-3">
                         <div class="col-sm-6">
                             <label for="Name" class="form-label">Title</label>
-                            <input type="text" asp-for="Title" class="form-control" id="firstName" placeholder="Title" required="">
-                            <input type="text" asp-for="Id" class="form-control" hidden id="firstName" placeholder="Title" required="">
+                            <input type="text" asp-for="Title" class="form-control" id="firstName" placeholder="Title">
+                            <input type="text" asp-for="Id" class="form-control" hidden id="firstName" placeholder="Title">
 
                         </div>
                         <div class="col-sm-6">
                             <label for="Line1" class="form-label">Author</label>
                             <div class="input-group has-validation">
 
-                                <input type="text" asp-for="Author" class="form-control" id="Line1" placeholder="Author" required="">
+                                <input type="text" asp-for="Author" class="form-control" id="Line1" placeholder="Author">
 
                             </div>
                         </div>
@@ -54,7 +55,7 @@
                             <label for="Line2" class="form-label">Release Year</label>
                             <div class="input-group has-validation">
 
-                                <input type="text" asp-for="ReleaseYear" class="form-control" id="Line2" placeholder="Release Year" required="">
+                                <input type="text" asp-for="ReleaseYear" class="form-control" id="Line2" placeholder="Release Year">
 
                             </div>
                         </div>
@@ -62,7 +63,7 @@
                             <label for="Line2" class="form-label">Genre</label>
                             <div class="input-group has-validation">
 
-                                <input type="text" asp-for="Genre" class="form-control" id="Line2" placeholder="Genre" required="">
+                                <input type="text" asp-for="Genre" class="form-control" id="Line2" placeholder="Genre" >
 
                             </div>
                         </div>

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MusicStore.Models;
 using MusicStore.Models.Repository;
 using System.Linq;
@@ -30,6 +31,7 @@ namespace MusicStore.Controllers
             }
             return RedirectToAction(nameof(List));
         }
+        [Authorize]
         public ViewResult Checkout()
         {
             return View(new Order());

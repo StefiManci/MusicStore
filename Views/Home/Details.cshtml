@@ -58,6 +58,10 @@
                                 <path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1" />
                             </svg>
                             <h2 class="fw-normal">@i.Title</h2>
+
+                            <p><b>Genre:</b>@i.Genre</p>
+                            <p><b>Author:</b>@i.Author</p>
+                            <p><b>Release Year:</b>@i.ReleaseYear</p>
                             <p>
                                 <form id="@i.Title" asp-action="AddToCart"
                                       asp-controller="Cart" method="post" asp-route-Title="@i.Title">
@@ -72,41 +76,7 @@
                                 </form>
                             </p>
                         </div>
-                        <div class="container px-4 py-5" id="icon-grid">
-                            <h2 class="pb-2 border-bottom">Album Information</h2>
 
-                            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
-                                <div class="col d-flex align-items-start">
-                                    <svg class="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#bootstrap"></use></svg>
-                                    <div>
-                                        <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">@i.Title</h3>
-                                        <p>Title of the Album</p>
-                                    </div>
-                                </div>
-
-                                <div class="col d-flex align-items-start">
-                                    <svg class="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#speedometer2"></use></svg>
-                                    <div>
-                                        <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">@i.Author</h3>
-                                        <p>Author of the Album</p>
-                                    </div>
-                                </div>
-                                <div class="col d-flex align-items-start">
-                                    <svg class="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#toggles2"></use></svg>
-                                    <div>
-                                        <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">@i.Genre</h3>
-                                        <p>Album Genre</p>
-                                    </div>
-                                </div>
-                                <div class="col d-flex align-items-start">
-                                    <svg class="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#geo-fill"></use></svg>
-                                    <div>
-                                        <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">@i.ReleaseYear</h3>
-                                        <p>Album Release Year</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     }
                 </div>
             </div>

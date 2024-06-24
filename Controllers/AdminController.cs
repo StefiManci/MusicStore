@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MusicStore.Models;
 using MusicStore.Models.Repository;
 using System.Linq;
 namespace MusicStore.Controllers
-{
+{   
+    [Authorize]
     public class AdminController : Controller
     {
         IAlbumRepository albumRepository;
