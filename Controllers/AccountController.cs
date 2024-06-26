@@ -17,29 +17,32 @@ namespace MusicStore.Controllers
             this.userManager = userManager;
             this.signInManager = signInManager;
         }
-        public ViewResult Login()
+        public ViewResult Login(string ReturnUrl)
         {
-            return View();
+            return View(new LoginModel
+            {
+                ReturnUrl = ReturnUrl,
+            });
         }
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(LoginModel details,string returnUrl)
+        public async Task<IActionResult> Login(LoginModel details)
         {
             if (ModelState.IsValid)
             {
-                AppUser user=await userManager.FindByEmailAsync(details.Email);
-                if (user!=null)
+                AppUser user = await userManager.FindByEmailAsync(details.Email);
+                if (user != null)
                 {
                     await signInManager.SignOutAsync();
                     Microsoft.AspNetCore.Identity.SignInResult result = await signInManager.PasswordSignInAsync(user, details.Password, false, false);
                     if (result.Succeeded)
                     {
-                        return Redirect(returnUrl ??"/");
+                        return Redirect(details?.ReturnUrl ?? "/");
                     }
                 }
                 ModelState.AddModelError(nameof(LoginModel.Email),
- "Invalid user or password");
+                            "Invalid user or password");
             }
             return View(details);
         }
@@ -47,7 +50,7 @@ namespace MusicStore.Controllers
         public async Task<RedirectResult> Logout()
         {
             await signInManager.SignOutAsync();
-            return Redirect("/");
+            return Redirect("/Account/Login");
         }
     }
 }

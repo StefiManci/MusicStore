@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music Store</title>
-    <link rel="stylesheet" href="~/css/style.css">
+    <link href="~/css/site.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
 </head>
@@ -26,29 +26,27 @@
 
             </form>
             <ul class="nav nav-pills">
-                <li class="nav-item"><a asp-action="Index" asp-controller="Home" class="nav-link" aria-current="page"><button type="button" class="btn btn-outline-info" style="width:100px">Home</button></a></li>
-                <li class="nav-item"><a asp-action="Index" asp-controller="Store" class="nav-link"><button type="button" class="btn btn-outline-info" style="width:100px">Store</button></a></li>
-                <li class="nav-item"><a asp-action="Index" asp-controller="Cart" class="nav-link"><button type="button" class="btn btn-outline-info" style="width:100px">Cart</button></a></li>
-                <li class="nav-item"><a asp-action="Index" asp-controller="Admin" class="nav-link"><button type="button" class="btn btn-outline-info" style="width:100px">Admin</button></a></li>
+                <li class="nav-item"><a asp-action="Index" asp-controller="Home" class="nav-link" aria-current="page"><button type="button" class="btn btn-outline-dark" style="width:100px">Home</button></a></li>
+                <li class="nav-item"><a asp-action="Index" asp-controller="Store" class="nav-link"><button type="button" class="btn btn-outline-dark" style="width:100px">Store</button></a></li>
+                <li class="nav-item"><a asp-action="Index" asp-controller="Cart" class="nav-link"><button type="button" class="btn btn-outline-dark" style="width:100px">Cart</button></a></li>
+                <li class="nav-item"><a asp-action="Index" asp-controller="Admin" class="nav-link"><button type="button" class="btn btn-outline-dark" style="width:100px">Admin</button></a></li>
             </ul>
         </header>
 
         <div class="container col-12 d-flex">
-            <div class="d-flex flex-column align-items-center col-2  text-bg-white" style="width: 180px; border-right:2px solid blue">
+            <div class="d-flex flex-column align-items-center col-2  text-bg-white" style="width: 180px; border-right:2px solid black">
                 <hr>
                 <h2>Genres</h2>
                 <hr />
                 <ul class="nav nav-pills flex-column mb-auto">
-                    <li><a class="dropdown-item" asp-action="Index" asp-controller="Home" asp-route-category="Pop"><button type="button" class="btn btn-outline-info" style="width:100px">Pop</button></a></li>
-                    <li><a class="dropdown-item" asp-action="Index" asp-controller="Home" asp-route-category="Jazz"><button type="button" class="btn btn-outline-info" style="width:100px">Jazz</button></a></li>
-                    <li><a class="dropdown-item" asp-action="Index" asp-controller="Home" asp-route-category="Rock"><button type="button" class="btn btn-outline-info" style="width:100px">Rock</button></a></li>
-                    <li><a class="dropdown-item" asp-action="Index" asp-controller="Home" asp-route-category="HipHop"><button type="button" class="btn btn-outline-info" style="width:100px">Hip Hop</button></a></li>
+                    <li><a class="dropdown-item" asp-action="Index" asp-controller="Home" asp-route-category="Pop"><button type="button" class="btn btn-outline-dark" style="width:100px">Pop</button></a></li>
+                    <li><a class="dropdown-item" asp-action="Index" asp-controller="Home" asp-route-category="Jazz"><button type="button" class="btn btn-outline-dark" style="width:100px">Jazz</button></a></li>
+                    <li><a class="dropdown-item" asp-action="Index" asp-controller="Home" asp-route-category="Rock"><button type="button" class="btn btn-outline-dark" style="width:100px">Rock</button></a></li>
+                    <li><a class="dropdown-item" asp-action="Index" asp-controller="Home" asp-route-category="HipHop"><button type="button" class="btn btn-outline-dark" style="width:100px">Hip Hop</button></a></li>
                 </ul>
 
                 <hr>
             </div>
-
-         
             <div id="carouselExampleSlidesOnly" class="carousel slide col-10" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
@@ -64,16 +62,16 @@
             </div>
         </div>
         <hr />
-        <div class="container col-12 d-flex flex-wrap justify-content-center align-content-center">
+        <div class="container  d-flex flex-wrap m-0 p-0 justify-content-center align-content-center">
             @foreach (var i in Model)
             {
-                <div class="col-lg-2 justify-content-center align-content-center" id="carddiv" style="text-align: center;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-file-music" viewBox="0 0 16 16">
+                <div class="  justify-content-center align-content-center" id="carddiv" style="text-align: center;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-file-music" viewBox="0 0 16 16">
                         <path d="M10.304 3.13a1 1 0 0 1 1.196.98v1.8l-2.5.5v5.09c0 .495-.301.883-.662 1.123C7.974 12.866 7.499 13 7 13s-.974-.134-1.338-.377C5.302 12.383 5 11.995 5 11.5s.301-.883.662-1.123C6.026 10.134 6.501 10 7 10c.356 0 .7.068 1 .196V4.41a1 1 0 0 1 .804-.98z" />
                         <path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1" />
                     </svg>
-                    <h2 class="fw-normal">@i.Title</h2>
-                    <p><a class="btn btn-success" asp-action="Details" asp-controller="Home" asp-route-detail="@i.Title">View details »</a></p>
+                    <h4 class="fw-normal">@i.Title</h4>
+                    <p><a class="btn btn-outline-dark" asp-action="Details" asp-controller="Home" asp-route-detail="@i.Title">View details »</a></p>
                 </div>
             }
         </div>

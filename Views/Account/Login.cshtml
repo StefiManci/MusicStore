@@ -26,24 +26,24 @@
 
             </form>
             <ul class="nav nav-pills">
-                <li class="nav-item"><a asp-action="Index" asp-controller="Home" class="nav-link" aria-current="page"><button type="button" class="btn btn-outline-info" style="width:100px">Home</button></a></li>
-                <li class="nav-item"><a asp-action="Index" asp-controller="Store" class="nav-link"><button type="button" class="btn btn-outline-info" style="width:100px">Store</button></a></li>
-                <li class="nav-item"><a asp-action="Index" asp-controller="Cart" class="nav-link"><button type="button" class="btn btn-outline-info" style="width:100px">Cart</button></a></li>
-                <li class="nav-item"><a asp-action="Index" asp-controller="Admin" class="nav-link"><button type="button" class="btn btn-outline-info" style="width:100px">Admin</button></a></li>
+                <li class="nav-item"><a asp-action="Index" asp-controller="Home" class="nav-link" aria-current="page"><button type="button" class="btn btn-outline-dark" style="width:100px">Home</button></a></li>
+                <li class="nav-item"><a asp-action="Index" asp-controller="Store" class="nav-link"><button type="button" class="btn btn-outline-dark" style="width:100px">Store</button></a></li>
+                <li class="nav-item"><a asp-action="Index" asp-controller="Cart" class="nav-link"><button type="button" class="btn btn-outline-dark" style="width:100px">Cart</button></a></li>
+                <li class="nav-item"><a asp-action="Index" asp-controller="Admin" class="nav-link"><button type="button" class="btn btn-outline-dark" style="width:100px">Admin</button></a></li>
             </ul>
         </header>
 
         <div class="container col-12 d-flex">
             <div class="container col-1">
-                <div class="d-flex flex-column align-items-center col-2  text-bg-white" style="width: 180px; border-right:2px solid blue">
+                <div class="d-flex flex-column align-items-center col-2  text-bg-white" style="width: 180px; border-right:1px solid black">
                     <hr>
                     <h2>Genres</h2>
                     <hr />
                     <ul class="nav nav-pills flex-column mb-auto">
-                        <li><a class="dropdown-item" asp-action="Index" asp-controller="Home" asp-route-category="Pop"><button type="button" class="btn btn-outline-info" style="width:100px">Pop</button></a></li>
-                        <li><a class="dropdown-item" asp-action="Index" asp-controller="Home" asp-route-category="Jazz"><button type="button" class="btn btn-outline-info" style="width:100px">Jazz</button></a></li>
-                        <li><a class="dropdown-item" asp-action="Index" asp-controller="Home" asp-route-category="Rock"><button type="button" class="btn btn-outline-info" style="width:100px">Rock</button></a></li>
-                        <li><a class="dropdown-item" asp-action="Index" asp-controller="Home" asp-route-category="HipHop"><button type="button" class="btn btn-outline-info" style="width:100px">Hip Hop</button></a></li>
+                        <li><a class="dropdown-item" asp-action="Index" asp-controller="Home" asp-route-category="Pop"><button type="button" class="btn btn-outline-dark" style="width:100px">Pop</button></a></li>
+                        <li><a class="dropdown-item" asp-action="Index" asp-controller="Home" asp-route-category="Jazz"><button type="button" class="btn btn-outline-dark" style="width:100px">Jazz</button></a></li>
+                        <li><a class="dropdown-item" asp-action="Index" asp-controller="Home" asp-route-category="Rock"><button type="button" class="btn btn-outline-dark" style="width:100px">Rock</button></a></li>
+                        <li><a class="dropdown-item" asp-action="Index" asp-controller="Home" asp-route-category="HipHop"><button type="button" class="btn btn-outline-dark" style="width:100px">Hip Hop</button></a></li>
                     </ul>
 
                     <hr>
@@ -51,11 +51,12 @@
             </div>
             <div class="container col-9">
                 <div>
-                    <h3>Dont have an account?<a asp-action="Create" asp-controller="Home">Register</a></h3>
+                    <h4>Log On</h4>
+                    <p>Please enter your Email and Password. <a asp-action="Create" asp-controller="Home"> Register </a>if you don`t have an account.</p>
                 </div>
                 <div asp-validation-summary="All" class="text-danger"></div>
-                <form asp-action="Login" method="post">
-                    <input type="hidden" name="returnUrl" value="@ViewBag.returnUrl" />
+                <form asp-action="Login" asp-controller="Account" method="post">
+                    <input type="hidden" asp-for="ReturnUrl" />
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Email</label>
                         <input asp-for="Email" class="form-control" id="exampleInputPassword1">
@@ -67,10 +68,7 @@
 
                     <button type="submit" class="btn btn-primary">Log In</button>
                 </form>
-                @using (Html.BeginForm("Logout", "Account", FormMethod.Post))
-                {
-                    <button name="Logout" type="submit" value="Logout" class="btn btn-default">Logout</button>
-                }
+
             </div>
 
         </div>
