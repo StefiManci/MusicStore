@@ -19,7 +19,8 @@ namespace MusicStore.Controllers
         public ViewResult Index(string category)
         {
             return View(repository.Albums
-            .Where(p => p.Genre == category || category == null));
+            .Where(p => p.Genre == category || category == null)
+            .Where(p=> p.Id<10));
         }
         public ViewResult Details(string detail)
         {
