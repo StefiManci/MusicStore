@@ -2,6 +2,9 @@
 
 namespace MusicStore.Models
 {
+    /// <summary>
+    /// User Model Required For Login
+    /// </summary>
     public class UserModel
     {
         [Required]

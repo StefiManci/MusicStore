@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MusicStore.Models.Repository;
 using System.Linq;
-
 namespace MusicStore.Controllers
 {
     public class StoreController : Controller
